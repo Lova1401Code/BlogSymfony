@@ -1,11 +1,52 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 	<div class="w3-container w3-padding-top-32">
-		<h2>Création blog</h2>
-		<form action="" method="post">
-			<input type="text" name="nom" id="" placeholder="Entrer votre nom">
-			<input type="text" name="prenom" placeholder="Entrer votre prenoms" id="">
-			<input type="submit" value="Envoyer">
-		</form>
+		<div class="w3-row">
+			<div class="w3-col m2">
+				<p></p>
+			</div>
+			<div class="w3-col m8">
+				<p>
+					<h2>Création blog</h2>
+					<div class="w3-card-4 w3-light-grey">
+						<div class="w3-container w3-brown">
+							<h2>Formulaire</h2>
+						</div>
+						<div class="w3-container">
+							{{ form_start(formArticle)}}
+							<p>
+								<label class="w3-text-brown" for="">
+									<b>Titre</b>
+								</label>
+								{# <span class="w3-tag w3-spin w3-large w3-red">{{ form_errors(formArticle.title) }}</span> #}
+								{{ form_widget(formArticle.title, {'attr': {'class': "w3-input w3-border w3-sand"}}) }}
+							</p>
+							<p>
+								<label class="w3-text-brown" for="">
+									<b>Contenu</b>
+								</label>
+								{{ form_widget(formArticle.content, {'attr': {'class': "w3-input w3-border w3-sand"}}) }}
+							</p>
+							{% if editMode %}
+								<p>
+									<button class="w3-btn w3-brown" type="submit">Modifier</button>
+								</p>
+							{% else %}
+								<p>
+									<button class="w3-btn w3-brown" type="submit">Register</button>
+								</p>
+							{% endif %}
+
+							{{ form_end(formArticle) }}
+						</div>
+					</div>
+				</p>
+			</div>
+			<div class="w3-col m2">
+				<p></p>
+			</div>
+		</div>
+
 	</div>
+
 {% endblock %}
